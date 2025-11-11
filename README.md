@@ -58,18 +58,7 @@ A complete EdTech learning platform that runs entirely on the frontend using loc
 
 ## Default Login Credentials
 
-### User Account
-- **Email:** `user@example.com`
-- **Password:** `password123`
-
-### Instructor Account
-- **Email:** `instructor@example.com`
-- **Password:** `instructorpass`
-
-### Admin Account
-- **Email:** `admin@bytewise.com`
-- **Password:** `admin123`
-- **Admin Key:** `codered`
+Create your account by signing up on the platform.
 
 ## How It Works
 

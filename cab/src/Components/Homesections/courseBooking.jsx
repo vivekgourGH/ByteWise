@@ -140,8 +140,8 @@ const CourseBooking = () => {
                 <p className="text-sm text-slate-500 mb-4">{course.description}</p>
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <span className="text-2xl font-bold text-emerald-600">${course.price}</span>
-                    <span className="text-sm text-slate-500 line-through ml-2">${course.originalPrice}</span>
+                    <span className="text-2xl font-bold text-emerald-600">₹{course.price}</span>
+                    <span className="text-sm text-slate-500 line-through ml-2">₹{course.originalPrice}</span>
                   </div>
                   <span className="text-sm text-slate-500">{course.students} students</span>
                 </div>
