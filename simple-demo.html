@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CabConnect - Simple Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen">
+        <!-- Header -->
+        <nav class="bg-yellow-400 shadow-md p-4">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <h1 class="text-2xl font-bold text-gray-800">🚕 CabConnect</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="showLogin()" class="bg-black text-yellow-400 px-4 py-2 rounded font-semibold">Login</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="max-w-7xl mx-auto p-8">
+            <div class="text-center mb-8">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">TRUSTED CAB SERVICES</h2>
+                <p class="text-gray-600">Book your ride in Chennai with ease</p>
+            </div>
+
+            <!-- Booking Form -->
+            <div class="bg-white rounded-xl shadow-2xl p-8 max-w-md mx-auto">
+                <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">Book a Ride</h3>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Pickup Location</label>
+                        <select id="pickup" class="w-full p-3 border border-gray-300 rounded-md">
+                            <option value="">Select Pickup</option>
+                            <option value="T. Nagar">T. Nagar</option>
+                            <option value="Velachery">Velachery</option>
+                            <option value="Anna Nagar">Anna Nagar</option>
+                            <option value="Guindy">Guindy</option>
+                            <option value="Tambaram">Tambaram</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Drop Location</label>
+                        <select id="drop" class="w-full p-3 border border-gray-300 rounded-md">
+                            <option value="">Select Drop</option>
+                            <option value="T. Nagar">T. Nagar</option>
+                            <option value="Velachery">Velachery</option>
+                            <option value="Anna Nagar">Anna Nagar</option>
+                            <option value="Guindy">Guindy</option>
+                            <option value="Tambaram">Tambaram</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Vehicle Type</label>
+                        <select id="vehicle" class="w-full p-3 border border-gray-300 rounded-md">
+                            <option value="">Select Vehicle</option>
+                            <option value="economy">Economy - ₹12/km</option>
+                            <option value="standard">Standard - ₹15/km</option>
+                            <option value="luxury">Luxury - ₹20/km</option>
+                        </select>
+                    </div>
+
+                    <button onclick="findCabs()" class="w-full bg-yellow-400 text-black font-bold py-3 rounded-md hover:bg-yellow-500 transition">
+                        FIND CABS
+                    </button>
+
+                    <div id="results" class="hidden mt-6 p-4 bg-gray-50 rounded-lg">
+                        <div class="text-center">
+                            <h4 class="font-bold text-lg mb-2">Cab Found!</h4>
+                            <div class="grid grid-cols-3 gap-4 text-center">
+                                <div>
+                                    <p class="text-xs text-gray-500">FARE</p>
+                                    <p id="fare" class="font-bold text-green-600">₹150</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500">DISTANCE</p>
+                                    <p id="distance" class="font-bold">9.3 km</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500">ETA</p>
+                                    <p id="eta" class="font-bold text-blue-600">25 mins</p>
+                                </div>
+                            </div>
+                            <button onclick="bookRide()" class="w-full mt-4 bg-black text-yellow-400 font-bold py-2 rounded-md">
+                                BOOK NOW
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6 bg-white rounded-lg shadow">
+                    <div class="text-4xl mb-4">🚗</div>
+                    <h3 class="font-bold text-lg mb-2">Quick Booking</h3>
+                    <p class="text-gray-600">Book your ride in just a few clicks</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow">
+                    <div class="text-4xl mb-4">💳</div>
+                    <h3 class="font-bold text-lg mb-2">Easy Payment</h3>
+                    <p class="text-gray-600">Multiple payment options available</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-lg shadow">
+                    <div class="text-4xl mb-4">⭐</div>
+                    <h3 class="font-bold text-lg mb-2">Rated Drivers</h3>
+                    <p class="text-gray-600">All drivers are verified and rated</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-lg max-w-md w-full mx-4">
+            <h3 class="text-xl font-bold mb-4">Login to CabConnect</h3>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 mb-2">Email</label>
+                    <input type="email" id="loginEmail" value="user@example.com" class="w-full p-3 border rounded-md">
+                </div>
+                <div>
+                    <label class="block text-gray-700 mb-2">Password</label>
+                    <input type="password" id="loginPassword" value="password123" class="w-full p-3 border rounded-md">
+                </div>
+                <div class="flex space-x-4">
+                    <button onclick="login()" class="flex-1 bg-yellow-400 text-black font-bold py-2 rounded-md">Login</button>
+                    <button onclick="closeLogin()" class="flex-1 bg-gray-300 text-gray-700 py-2 rounded-md">Cancel</button>
+                </div>
+            </div>
+            <div class="mt-4 text-sm text-gray-600">
+                <p><strong>Demo Credentials:</strong></p>
+                <p>Email: user@example.com</p>
+                <p>Password: password123</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple demo functionality
+        let isLoggedIn = false;
+        let currentUser = null;
+
+        function showLogin() {
+            document.getElementById('loginModal').classList.remove('hidden');
+        }
+
+        function closeLogin() {
+            document.getElementById('loginModal').classList.add('hidden');
+        }
+
+        function login() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (email === 'user@example.com' && password === 'password123') {
+                isLoggedIn = true;
+                currentUser = { name: 'Demo User', email: email };
+                alert('Login successful! You can now book rides.');
+                closeLogin();
+                updateUI();
+            } else {
+                alert('Invalid credentials. Use: user@example.com / password123');
+            }
+        }
+
+        function updateUI() {
+            if (isLoggedIn) {
+                document.querySelector('nav button').textContent = `Welcome, ${currentUser.name}`;
+                document.querySelector('nav button').onclick = logout;
+            }
+        }
+
+        function logout() {
+            isLoggedIn = false;
+            currentUser = null;
+            document.querySelector('nav button').textContent = 'Login';
+            document.querySelector('nav button').onclick = showLogin;
+            alert('Logged out successfully!');
+        }
+
+        function findCabs() {
+            const pickup = document.getElementById('pickup').value;
+            const drop = document.getElementById('drop').value;
+            const vehicle = document.getElementById('vehicle').value;
+
+            if (!pickup || !drop || !vehicle) {
+                alert('Please select pickup, drop, and vehicle type');
+                return;
+            }
+
+            if (pickup === drop) {
+                alert('Pickup and drop locations cannot be the same');
+                return;
+            }
+
+            // Simulate finding cabs
+            const rates = { economy: 12, standard: 15, luxury: 20 };
+            const distance = 9.3; // Sample distance
+            const fare = Math.ceil(distance * rates[vehicle]);
+            
+            document.getElementById('fare').textContent = `₹${fare}`;
+            document.getElementById('distance').textContent = `${distance} km`;
+            document.getElementById('eta').textContent = '25 mins';
+            document.getElementById('results').classList.remove('hidden');
+        }
+
+        function bookRide() {
+            if (!isLoggedIn) {
+                alert('Please login first to book a ride');
+                showLogin();
+                return;
+            }
+
+            const pickup = document.getElementById('pickup').value;
+            const drop = document.getElementById('drop').value;
+            
+            // Simulate booking
+            setTimeout(() => {
+                alert(`🎉 Booking Confirmed!\n\nFrom: ${pickup}\nTo: ${drop}\n\nDriver: Rajesh Kumar\nCab: TN 01 CB 1234\n\nYour cab will arrive in 5 minutes!`);
+            }, 1000);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('CabConnect Demo Loaded');
+        });
+    </script>
+</body>
+</html>

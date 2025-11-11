@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "fullName": "Demo User",
+    "email": "user@example.com",
+    "password": "password123",
+    "phone": "9999999999",
+    "role": "user",
+    "adminApproval": "approved",
+    "blockStatus": "no"
+  },
+  {
+    "id": 2,
+    "fullName": "Demo Driver",
+    "email": "driver@example.com",
+    "password": "driverpass",
+    "phone": "8888888888",
+    "role": "driver",
+    "adminApproval": "approved",
+    "blockStatus": "no"
+  }
+]
