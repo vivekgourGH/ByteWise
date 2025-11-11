@@ -5,12 +5,15 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pages: write
       id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
     - name: Checkout
@@ -23,14 +26,10 @@ jobs:
         cache: 'npm'
         cache-dependency-path: cab/package-lock.json
         
-    - name: Install dependencies
+    - name: Install and Build
       run: |
         cd cab
-        npm install
-        
-    - name: Build
-      run: |
-        cd cab
+        npm ci
         npm run build
         
     - name: Setup Pages
