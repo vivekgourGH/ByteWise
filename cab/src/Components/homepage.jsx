@@ -1,6 +1,4 @@
- // Homepage.js
 import React from "react";
-import Header from "../Components/Header.jsx";
 import Landing from "./Homesections/landing.jsx";
 import CourseBooking from "./Homesections/courseBooking.jsx";
 import Categories from "./Homesections/categories.jsx";
