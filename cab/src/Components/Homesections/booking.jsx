@@ -463,8 +463,8 @@ return (
   <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
     {/* Left Column: Info, Image, and Map */}
     <div className="lg:col-span-3 flex flex-col items-center text-center lg:items-start lg:text-left">
-      <h2 className="text-2xl font-bold text-gray-800 mb-2">Best In City</h2>
-      <h2 className="text-4xl lg:text-5xl font-bold mb-8 text-orange-600">TRUSTED CAB SERVICES IN CHENNAI</h2>
+      <h2 className="text-2xl font-bold text-gray-800 mb-2">Best In Education</h2>
+      <h2 className="text-4xl lg:text-5xl font-bold mb-8 text-orange-600">TRUSTED LEARNING PLATFORM</h2>
       
       <div className="w-full grid grid-cols-1 md:grid-cols-5 gap-6 mt-4 items-center">
         <div className="md:col-span-2 flex justify-center items-center">
@@ -487,7 +487,7 @@ return (
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
               <Marker position={chennaiPosition}>
-                <Popup>CabConnect services available here!</Popup>
+                <Popup>BytWise courses available here!</Popup>
               </Marker>
             </MapContainer>
           </div>
@@ -498,16 +498,16 @@ return (
 {/* //form section start */}  
   <div className="lg:col-span-2 bg-white rounded-xl shadow-2xl p-8 space-y-6 w-full">  
     <div>
-      <label htmlFor="pickup" className="block text-gray-700 font-medium mb-2">Pickup Location</label>
+      <label htmlFor="category" className="block text-gray-700 font-medium mb-2">Course Category</label>
       <div className="relative">
         <FaMapMarkerAlt className="absolute left-3 top-1/2 -translate-y-1/2 text-green-500 pointer-events-none" />
         <select
-          id="pickup"
+          id="category"
           value={start}
           onChange={(e) => setStart(e.target.value)}
           className="w-full pl-10 pr-10 py-2 border border-gray-300 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
         >
-          <option value="">Select Pickup</option>
+          <option value="">Select Category</option>
           {uniquePlaces.map((place, index) => (
             <option key={index} value={place}>{place}</option>
           ))}
@@ -517,16 +517,16 @@ return (
     </div>
 
     <div>
-      <label htmlFor="drop" className="block text-gray-700 font-medium mb-2">Drop Location</label>
+      <label htmlFor="level" className="block text-gray-700 font-medium mb-2">Course Level</label>
       <div className="relative">
         <FaMapMarkerAlt className="absolute left-3 top-1/2 -translate-y-1/2 text-red-500 pointer-events-none" />
         <select
-          id="drop"
+          id="level"
           value={end}
           onChange={(e) => setEnd(e.target.value)}
           className="w-full pl-10 pr-10 py-2 border border-gray-300 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none"
         >
-          <option value="">Select Drop</option>
+          <option value="">Select Level</option>
           {uniquePlaces.map((place, index) => (
             <option key={index} value={place}>{place}</option>
           ))}
@@ -536,7 +536,7 @@ return (
     </div>
  
     <div>
-      <label className="block text-gray-700 font-medium mb-2">Trip Date</label>
+      <label className="block text-gray-700 font-medium mb-2">Start Date</label>
       <div className="relative">
         <FaCalendarAlt className="absolute left-3 top-1/2 -translate-y-1/2 text-blue-500 pointer-events-none" />
         <div className="w-full pl-10 pr-4 py-2 border border-gray-200 bg-gray-50 text-gray-800 rounded-md cursor-default">
@@ -546,7 +546,7 @@ return (
     </div>
 
     <div className="relative" ref={dropdownRef}>
-      <label htmlFor="vehicle" className="block text-gray-700 font-medium mb-2">Vehicle Type</label>
+      <label htmlFor="course" className="block text-gray-700 font-medium mb-2">Course Type</label>
       <button
         type="button"
         id="vehicle"
@@ -562,7 +562,7 @@ return (
             </div>
           </div>
         ) : (
-          <span className="text-gray-500 pl-2">Select Vehicle Type</span>
+          <span className="text-gray-500 pl-2">Select Course Type</span>
         )}
         <FaChevronDown className={`text-gray-400 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`} />
       </button>
@@ -598,7 +598,7 @@ return (
         onClick={handleFindCabs}
         className="bg-yellow-400 text-black font-bold px-8 py-3 rounded-md hover:bg-yellow-500 transition-transform transform hover:scale-105 shadow-md"  
       >  
-        FIND CABS  
+        FIND COURSES  
       </button>  
     </div>
 
@@ -610,7 +610,7 @@ return (
 
     {loading && (  
       <div className="bg-yellow-100 p-4 rounded-md text-center text-yellow-800 font-medium">  
-        🔍 Finding available cabs...  
+        🔍 Finding available courses...  
       </div>  
     )}  
 
@@ -657,7 +657,7 @@ return (
         disabled={isWaitingForDriver}
         className="bg-black text-yellow-400 font-bold px-8 py-3 rounded-md hover:bg-gray-800 transition-transform transform hover:scale-105 shadow-md"  
       >  
-        Proceed to Book  
+        Proceed to Enroll  
       </button>  
     </div>  
   </div>  

@@ -106,8 +106,8 @@ const Header = ({ children }) => {
           if (userOngoingRides.length > 0) {
             Swal.fire({
               icon: 'warning',
-              title: 'Ongoing Ride Active',
-              html: `You cannot logout while you have an ongoing ride.<br><br>Please complete your current ride first.`,
+              title: 'Ongoing Course Active',
+              html: `You cannot logout while you have an ongoing course.<br><br>Please complete your current course first.`,
               confirmButtonText: 'Got it',
               confirmButtonColor: '#f59e0b'
             });
@@ -259,7 +259,7 @@ const Header = ({ children }) => {
         <nav className="flex-grow p-4">
           <ul className="space-y-1">
             <NavLink icon={<FaCar />} text="Browse Courses" onClick={() => handleNavigateAndScroll('booking-section')} />
-            <NavLink icon={<FaHistory />} text="My Courses" onClick={() => handleAuthenticatedNavigate("/my-courses")} />
+            <NavLink icon={<FaHistory />} text="Learning History" onClick={() => handleAuthenticatedNavigate("/ride-history")} />
             <NavLink icon={<FaUserEdit />} text="My Profile" onClick={() => handleAuthenticatedNavigate("/profile")} />
 
           </ul>

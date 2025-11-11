@@ -1,0 +1,10 @@
+{
+  "buildCommand": "cd cab && npm install && npm run build",
+  "outputDirectory": "cab/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

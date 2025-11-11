@@ -309,10 +309,10 @@ function Confirmbook() {
 
             <div className="p-6">
               <div className="text-center mb-6 pb-4 border-b">
-                <h2 className="text-xl font-bold text-gray-800">Booking Confirmed</h2>
+                <h2 className="text-xl font-bold text-gray-800">Enrollment Confirmed</h2>
                 <p className="flex items-center justify-center text-gray-500 text-xs mt-2">
                   <FaHashtag className="mr-2" />
-                  Booking ID: <span className="font-bold text-gray-700 ml-1">{bookingId}</span>
+                  Enrollment ID: <span className="font-bold text-gray-700 ml-1">{bookingId}</span>
                 </p>
               </div>
 
@@ -326,11 +326,11 @@ function Confirmbook() {
                   </div>
                   <div className="w-full space-y-4">
                     <div>
-                      <p className="text-xs text-gray-500 uppercase font-semibold">Pickup</p>
+                      <p className="text-xs text-gray-500 uppercase font-semibold">Course Category</p>
                       <p className="font-medium text-md text-gray-800">{pickupLocation}</p>
                     </div>
                     <div>
-                      <p className="text-xs text-gray-500 uppercase font-semibold">Drop</p>
+                      <p className="text-xs text-gray-500 uppercase font-semibold">Course Level</p>
                       <p className="font-medium text-md text-gray-800">{dropLocation}</p>
                     </div>
                   </div>
@@ -339,7 +339,7 @@ function Confirmbook() {
 
               {/* Highlighted ETA */}
               <div className="text-center bg-blue-50 p-4 rounded-lg my-6 border border-blue-200">
-                <p className="text-sm text-blue-700 uppercase font-semibold tracking-wider">Booking Status</p>
+                <p className="text-sm text-blue-700 uppercase font-semibold tracking-wider">Enrollment Status</p>
                 <div className="flex items-center justify-center gap-2 mt-2">
                   <FaRegClock className="text-blue-800 text-xl" />
                   <p className="text-2xl font-bold text-blue-900">{status || 'PENDING'}</p>
@@ -351,7 +351,7 @@ function Confirmbook() {
                 <div className="my-6 bg-green-50 border border-green-200 p-4 rounded-lg flex items-center justify-center gap-3 shadow-sm">
                   <FaCarSide className="text-green-600 text-xl" />
                   <p className="text-sm font-medium text-green-800">
-                    Your cab has been assigned and the driver is on the way for pickup.
+                    Your course has been confirmed and the instructor will contact you soon.
                     </p>
                 </div>
               )}
@@ -360,25 +360,25 @@ function Confirmbook() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5 bg-gray-50 p-6 rounded-lg border">
                 <DetailItem
                   icon={<FaCalendarAlt />}
-                  label="Booking Date"
+                  label="Enrollment Date"
                   value={formattedDate}
                 />
-                <DetailItem icon={<FaClock />} label="Booking Time" value={currentTime} />
-                <DetailItem icon={<FaUser />} label="Booked By" value={bookedBy || 'N/A'} />
-                <DetailItem icon={<FaRupeeSign />} label="Estimated Fare" value={formattedFare} />
-                <DetailItem icon={<FaRoad />} label="Distance" value={formattedDistance} />
-                <DetailItem icon={<FaUserTie />} label="Driver" value={driverName || 'Assigning...'} />
-                <DetailItem icon={<FaPhone />} label="Driver Contact" value={driverPhone || 'Will be provided'} />
-                <DetailItem icon={<FaCarSide />} label="Cab Category" value={vehicleDisplayName} />
+                <DetailItem icon={<FaClock />} label="Enrollment Time" value={currentTime} />
+                <DetailItem icon={<FaUser />} label="Enrolled By" value={bookedBy || 'N/A'} />
+                <DetailItem icon={<FaRupeeSign />} label="Course Fee" value={formattedFare} />
+                <DetailItem icon={<FaRoad />} label="Duration" value={formattedDistance} />
+                <DetailItem icon={<FaUserTie />} label="Instructor" value={driverName || 'Assigning...'} />
+                <DetailItem icon={<FaPhone />} label="Instructor Contact" value={driverPhone || 'Will be provided'} />
+                <DetailItem icon={<FaCarSide />} label="Course Category" value={vehicleDisplayName} />
                 {/* Special styling for Car Number */}
                 <div className="flex items-start">
                   <div className="text-gray-400 mr-4 text-lg mt-1"><FaIdCard /></div>
                   <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider">Car Number</p>
+                    <p className="text-xs text-gray-500 uppercase tracking-wider">Course Code</p>
                     <div className="inline-flex items-center bg-gray-100 border border-gray-300 px-2 py-1 rounded-md mt-1">
-                      <span className="font-semibold text-xs text-gray-500 mr-2">IND</span>
+                      <span className="font-semibold text-xs text-gray-500 mr-2">BW</span>
                       <p className="font-mono tracking-wider text-gray-800 text-sm font-semibold">
-                        {bookingData.vehicleNumber || 'TN 01 CB 1234'}
+                        {bookingData.courseCode || 'CS 101 WD'}
                       </p>
                     </div>
                   </div>
@@ -399,7 +399,7 @@ function Confirmbook() {
                   className="w-full sm:w-auto inline-flex items-center justify-center bg-red-500 text-white font-semibold px-8 py-2 rounded-lg hover:bg-red-600 transition-all text-sm"
                 >
                   <FaTimes className="mr-2" />
-                  Cancel Booking
+                  Cancel Enrollment
                 </button>
                 <button
                   className="w-full sm:w-auto bg-green-500 text-white font-bold px-8 py-2 rounded-lg hover:bg-green-600 transition-all shadow-md hover:shadow-lg text-sm"

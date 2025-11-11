@@ -1,13 +1,13 @@
-package com.cabconnect.backend;
+package com.bytewise.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CabConnectBackendApplication {
+public class BytWiseBackendApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CabConnectBackendApplication.class, args);
+        SpringApplication.run(BytWiseBackendApplication.class, args);
     }
 
 }

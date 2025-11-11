@@ -1,19 +1,19 @@
-# CabConnect - Local Frontend Application
+# BytWise - Local Frontend Application
 
-A complete cab booking application that runs entirely on the frontend using localStorage for data persistence. No backend server required!
+A complete EdTech learning platform that runs entirely on the frontend using localStorage for data persistence. No backend server required!
 
 ## Features
 
 ✅ **Complete User Authentication**
-- User, Driver, and Admin login/signup
+- Student, Instructor, and Admin login/signup
 - Local storage-based authentication
 - Session management
 
-✅ **Booking System**
-- Real-time cab booking with route calculation
-- Driver assignment simulation
-- Booking confirmation and management
-- Ride history tracking
+✅ **Course Enrollment System**
+- Real-time course booking with category selection
+- Instructor assignment simulation
+- Enrollment confirmation and management
+- Learning history tracking
 
 ✅ **Payment Integration**
 - Multiple payment methods (Card, UPI)
@@ -22,7 +22,7 @@ A complete cab booking application that runs entirely on the frontend using loca
 
 ✅ **Feedback System**
 - Star ratings and comments
-- Driver feedback collection
+- Instructor feedback collection
 
 ✅ **Profile Management**
 - User profile editing
@@ -62,12 +62,12 @@ A complete cab booking application that runs entirely on the frontend using loca
 - **Email:** `user@example.com`
 - **Password:** `password123`
 
-### Driver Account
-- **Email:** `driver@example.com`
-- **Password:** `driverpass`
+### Instructor Account
+- **Email:** `instructor@example.com`
+- **Password:** `instructorpass`
 
 ### Admin Account
-- **Email:** `admin@cabconnect.com`
+- **Email:** `admin@bytewise.com`
 - **Password:** `admin123`
 - **Admin Key:** `codered`
 
@@ -78,30 +78,30 @@ A complete cab booking application that runs entirely on the frontend using loca
 - No external database required
 - Data persists between browser sessions
 
-### Booking Flow
-1. **Select Route:** Choose pickup and drop locations from predefined Chennai routes
-2. **Choose Vehicle:** Select from Economy, Standard, or Luxury cabs
-3. **Find Cabs:** System calculates fare and distance
-4. **Book Ride:** Confirm booking details
-5. **Driver Assignment:** Automatic driver assignment (simulated)
+### Course Enrollment Flow
+1. **Select Category:** Choose from available course categories
+2. **Choose Course:** Select from Beginner, Intermediate, or Advanced courses
+3. **Find Courses:** System calculates price and duration
+4. **Enroll Course:** Confirm enrollment details
+5. **Instructor Assignment:** Automatic instructor assignment (simulated)
 6. **Payment:** Complete payment with multiple options
-7. **Feedback:** Rate your ride experience
+7. **Feedback:** Rate your learning experience
 
 ### Key Components
 
 - **LocalStorageService:** Handles all data operations
-- **Booking System:** Route calculation and cab assignment
+- **Enrollment System:** Course selection and instructor assignment
 - **Authentication:** User login/signup with role management
 - **Payment Gateway:** Simulated payment processing
 - **Feedback System:** Rating and review collection
 
-## Available Routes
+## Available Courses
 
-The application includes predefined routes in Chennai:
-- T. Nagar ↔ Velachery
-- Anna Nagar ↔ Guindy
-- Tambaram ↔ OMR
-- Marina Beach ↔ Porur
+The application includes predefined course categories:
+- Programming & Development
+- Data Science & Analytics
+- Web Design & UI/UX
+- Digital Marketing
 - And many more...
 
 ## Project Structure
@@ -111,29 +111,29 @@ cab/
 ├── src/
 │   ├── Components/
 │   │   ├── Homesections/
-│   │   │   └── booking.jsx          # Main booking component
+│   │   │   └── courseBooking.jsx    # Main course enrollment component
 │   │   ├── Login_authenticator/
 │   │   │   ├── Login.jsx            # Login component
 │   │   │   └── Signup.jsx           # Signup component
-│   │   ├── confirmbook.jsx          # Booking confirmation
+│   │   ├── confirmbook.jsx          # Enrollment confirmation
 │   │   ├── payment.jsx              # Payment processing
 │   │   ├── feedback.jsx             # Feedback system
-│   │   └── ridehistory.jsx          # Ride history
+│   │   └── learninghistory.jsx      # Learning history
 │   ├── services/
 │   │   └── localStorageService.js   # Data management service
 │   ├── data/
-│   │   └── routeData.json           # Route information
+│   │   └── coursesData.js           # Course information
 │   └── contexts/
 │       └── AuthContext.jsx          # Authentication context
 ```
 
 ## Features in Detail
 
-### 🚗 Booking System
-- Real-time fare calculation based on distance
-- Vehicle type selection (Economy/Standard/Luxury)
-- Automatic driver assignment
-- Booking status tracking
+### 📚 Enrollment System
+- Real-time price calculation based on course level
+- Course type selection (Beginner/Intermediate/Advanced)
+- Automatic instructor assignment
+- Enrollment status tracking
 
 ### 💳 Payment System
 - Credit/Debit card payments
@@ -144,11 +144,11 @@ cab/
 ### ⭐ Feedback System
 - 5-star rating system
 - Predefined feedback tags
-- Driver-specific feedback
+- Instructor-specific feedback
 
 ### 👤 User Management
 - Profile editing
-- Role-based access (User/Driver/Admin)
+- Role-based access (Student/Instructor/Admin)
 - Session management
 
 ## Troubleshooting
@@ -159,9 +159,9 @@ cab/
    - Check if localStorage is enabled in your browser
    - Clear browser cache and try again
 
-2. **Routes not working**
-   - Ensure you're selecting valid pickup/drop combinations
-   - Check the routeData.json file for available routes
+2. **Courses not working**
+   - Ensure you're selecting valid course categories
+   - Check the coursesData.js file for available courses
 
 3. **Login issues**
    - Use the default credentials provided above
@@ -178,17 +178,17 @@ localStorage.clear();
 
 ## Development
 
-### Adding New Routes
-Edit `src/data/routeData.json` to add new routes:
-```json
+### Adding New Courses
+Edit `src/data/coursesData.js` to add new courses:
+```javascript
 {
-  "new-location-existing-location": { "distance": 15.5 },
-  "existing-location-new-location": { "distance": 15.5 }
+  "new-course-category": { "duration": 40, "price": 2999 },
+  "existing-course-advanced": { "duration": 60, "price": 4999 }
 }
 ```
 
-### Customizing Vehicle Types
-Edit the `vehicles` array in `src/Components/Homesections/booking.jsx`
+### Customizing Course Types
+Edit the `courses` array in `src/Components/Homesections/courseBooking.jsx`
 
 ## Browser Compatibility
 
@@ -203,4 +203,4 @@ This project is for educational purposes only.
 
 ---
 
-**Note:** This is a frontend-only application using localStorage for data persistence. No backend server is required to run this application.
+**Note:** This is a frontend-only EdTech application using localStorage for data persistence. No backend server is required to run this application.
