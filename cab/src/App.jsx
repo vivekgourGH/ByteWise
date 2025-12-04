@@ -24,6 +24,7 @@ import Login from './Components/Login_authenticator/Login';
 import Signup from './Components/Login_authenticator/Signup';
 import Payment from './Components/payment';
 import Feedback from './Components/feedback';
+import Chatbot from './Components/Chatbot';
 
 
 
@@ -79,6 +80,7 @@ const App = () => {
           </Route>
           </Routes>
         </Header>
+        <Chatbot />
       </Router>
     </ErrorBoundary>
   )

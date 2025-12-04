@@ -69,11 +69,11 @@ const CourseBooking = () => {
   };
 
   return (
-    <section className="bg-gradient-to-br from-slate-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
+    <section className="courses-section bg-gradient-to-br from-slate-50 to-blue-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-4">Browse Courses</h1>
-          <p className="text-slate-600">Discover and enroll in our expert-led courses</p>
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-4">Coding Adventures Await! 🎆</h1>
+          <p className="text-slate-600">Choose your coding journey and start building amazing projects!</p>
         </div>
 
         {/* Filters */}
@@ -136,14 +136,17 @@ const CourseBooking = () => {
                   </div>
                 </div>
                 <h3 className="text-xl font-semibold text-slate-800 mb-2">{course.title}</h3>
-                <p className="text-slate-600 mb-2">by {course.instructor}</p>
-                <p className="text-sm text-slate-500 mb-4">{course.description}</p>
+                <p className="text-slate-600 mb-2">with {course.instructor}</p>
+                <p className="text-sm text-slate-500 mb-2">{course.description}</p>
+                <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-3 rounded-lg mb-4">
+                  <p className="text-sm font-medium text-purple-700">Perfect for ages: {course.ageGroup}</p>
+                </div>
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <span className="text-2xl font-bold text-emerald-600">₹{course.price}</span>
                     <span className="text-sm text-slate-500 line-through ml-2">₹{course.originalPrice}</span>
                   </div>
-                  <span className="text-sm text-slate-500">{course.students} students</span>
+                  <span className="text-sm text-slate-500">{course.students} young coders</span>
                 </div>
                 <div className="mb-4">
                   <p className="text-sm text-slate-600">Duration: {course.duration}</p>
@@ -154,7 +157,7 @@ const CourseBooking = () => {
                   disabled={enrolling === course.id}
                   className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 disabled:opacity-50 shadow-lg hover:shadow-xl"
                 >
-                  {enrolling === course.id ? 'Enrolling...' : 'Enroll Now'}
+                  {enrolling === course.id ? 'Starting Adventure...' : 'Start Learning! 🚀'}
                 </button>
               </div>
             </div>
